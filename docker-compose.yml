@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: nginx:stable
+    network_mode: "host"
+    container_name: nginx
+    volumes:
+      - /root/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /root/nginx/sites-available:/etc/nginx/sites-available
+      - /root/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - /root/nginx/html:/var/www
+      - /root/nginx/logs:/var/log/nginx
+    restart: unless-stopped
